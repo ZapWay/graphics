@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <title>Image Processor</title>
+  <style>
+    /* Simple CSS for side-by-side images */
+    .image-container {
+      display: flex;
+    }
+    .image-container img {
+      width: 48%; /* Adjust as needed */
+      margin-right: 2%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload and Process Image</h1>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <br>
+    <label for="kernel_size">Kernel Size (optional, default: 5):</label>
+    <input type="text" name="kernel_size" id="kernel_size">
+    <br>
+    <select name="task">
+      <option value="1">Task 1: Grayscale</option>
+      <option value="2">Task 2: Averaging Blur</option>
+      <option value="3">Task 3: Gaussian Blur</option>
+      <option value="4">Task 4: Median Blur</option>
+      <option value="5">Task 5: Histogram Equalization</option>
+      <!-- Add options for tasks from 8 onwards -->
+    </select>
+    <br>
+    <input type="submit" value="Process">
+  </form>
+
+  {% if filename %}
+    <h2>Original and Processed Images:</h2>
+    <div class="image-container">
+      <img src="{{ url_for('uploaded_file', filename=original_filename) }}" alt="Original Image">
+      <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Processed Image">
+    </div>
+  {% endif %}
+
+  {% if histogram_base64 %}
+    <h2>Image Histogram</h2>
+    <img src="data:image/png;base64,{{ histogram_base64 }}" alt="Image Histogram">
+  {% endif %}
+
+</body>
+</html>

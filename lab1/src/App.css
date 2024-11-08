@@ -1,0 +1,35 @@
+/* App.css */
+
+.sliders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.typography { /* Or use a more specific class name */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+
+.rgbHeader {
+    display: flex;
+    justify-content: center;
+}
+
+.cmykHeader {
+    display: flex;
+    justify-content: center;
+}
+.hslHeader {
+    display: flex;
+    justify-content: center;
+}
+.box1 {
+    display: flex;
+    justify-content: center;
+}
+.box2 {
+    display: flex;
+    justify-content: center;
+}
