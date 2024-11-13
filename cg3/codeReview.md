@@ -39,20 +39,15 @@ This review focuses on the provided `MainScreen` widget and related code, aiming
 **V. Example Refactoring Snippet (lineAnimation):**
 
 ```dart
-// In AlgorithmExecutor.dart
 class AlgorithmExecutor {
   static List<dynamic> execute(String algorithm, int x0, int y0, int x1, int y1, int radius, int iters, Function(String) log) {
     switch (algorithm) {
       case 'Step By Step':
         return StepByStepLine.stepByStepLine(x0, y0, x1, y1, log);
-      // ... other cases
     }
   }
 }
 
-// In MainScreen.dart
 void lineAnimation(...) {
   List<dynamic> points = AlgorithmExecutor.execute(selectedAlgorithm, startX, startY, endX, endY, radius, iter, initConsole);
-
-  // ... animation logic using points
 }
